@@ -21,6 +21,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
     "neanias/everforest-nvim",
     name = "everforest", 
@@ -34,15 +35,14 @@ local plugins = {
     build = ":TSUpdate"
   },
 }
-local opts = {}
 
--- Treesitter
+local opts = {}
 
 require("lazy").setup(plugins, opts)
 
 -- === Plugins Setup ===
 require("everforest").setup({
-  vim.cmd.colorscheme "everforest"
+  vim.cmd.colorscheme "catppuccin-frappe"
 })
 
 -- Treesitter
