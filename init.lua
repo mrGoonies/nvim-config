@@ -23,13 +23,20 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   {
     "neanias/everforest-nvim",
-    name="everforest", 
-    version=false, 
-    lazy=false, 
-    priority=1000
+    name = "everforest", 
+    version = false, 
+    lazy = false, 
+    priority = 1000
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    name = "nvim-treesitter",
+    build = ":TSUpdate"
   },
 }
 local opts = {}
+
+-- Treesitter
 
 require("lazy").setup(plugins, opts)
 
@@ -37,3 +44,18 @@ require("lazy").setup(plugins, opts)
 require("everforest").setup({
   vim.cmd.colorscheme "everforest"
 })
+
+-- Treesitter
+local config = require("nvim-treesitter.configs")
+config.setup({
+  ensure_installed = {
+    "lua",
+    "python",
+    "vim",
+    "javascript"
+  },
+  auto_install = true,
+  highlight = {enable = true},
+  indent = {enable = true},
+})
+
