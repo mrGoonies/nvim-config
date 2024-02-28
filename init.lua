@@ -20,4 +20,20 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local plugins = {
+  {
+    "neanias/everforest-nvim",
+    name="everforest", 
+    version=false, 
+    lazy=false, 
+    priority=1000
+  },
+}
+local opts = {}
+
 require("lazy").setup(plugins, opts)
+
+-- === Plugins Setup ===
+require("everforest").setup({
+  vim.cmd.colorscheme "everforest"
+})
