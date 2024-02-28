@@ -5,6 +5,7 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 
 vim.cmd("set relativenumber")
+vim.cmd("set noshowmode")
 
 -- === LazyNvim ===
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -23,17 +24,11 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
-    "neanias/everforest-nvim",
-    name = "everforest", 
-    version = false, 
-    lazy = false, 
-    priority = 1000
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     name = "nvim-treesitter",
     build = ":TSUpdate"
   },
+  -- IDE Settings
 }
 
 local opts = {}
@@ -41,7 +36,7 @@ local opts = {}
 require("lazy").setup(plugins, opts)
 
 -- === Plugins Setup ===
-require("everforest").setup({
+require("catppuccin").setup({
   vim.cmd.colorscheme "catppuccin-frappe"
 })
 
