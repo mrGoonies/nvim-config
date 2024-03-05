@@ -67,3 +67,6 @@ config.setup({
   indent = {enable = true},
 })
 
+
+-- === Keymaps ===
+vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal right<CR>", {})
