@@ -17,3 +17,5 @@ En esta configuración basada en la series de videos creados por [Typecraft](htt
     - Crea un bar lateral para la inspección de archivos y directorios de un proyecto o ruta específica. 
     - Característica básica de cualquier IDE o Editor de texto como VSCode.
 
+5. [lualine](https://github.com/nvim-lualine/lualine.nvim)
+    - Status line configurable para NeoVim.
