@@ -23,36 +23,11 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-
-local plugins = {
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    name = "nvim-treesitter",
-    build = ":TSUpdate"
-  },
-  -- IDE Settings
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    }
-  },
-  {"nvim-tree/nvim-web-devicons", name = "nvim-web-devicons"}
-}
-
 local opts = {}
 
-require("lazy").setup(plugins, opts)
+require("lazy").setup("plugins")
 
 -- === Plugins Setup ===
-require("catppuccin").setup({
-  vim.cmd.colorscheme "catppuccin-frappe"
-})
-
 -- Treesitter
 local config = require("nvim-treesitter.configs")
 config.setup({
