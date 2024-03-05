@@ -18,30 +18,16 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    "--branch=stable",
     lazypath,
   })
 end
 vim.opt.rtp:prepend(lazypath)
+
 local opts = {}
 
 require("lazy").setup("plugins")
 
--- === Plugins Setup ===
--- Treesitter
-local config = require("nvim-treesitter.configs")
-config.setup({
-  ensure_installed = {
-    "lua",
-    "python",
-    "vim",
-    "javascript"
-  },
-  auto_install = true,
-  highlight = {enable = true},
-  indent = {enable = true},
-})
-
-
 -- === Keymaps ===
 vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal right<CR>", {})
+vim.keymap.set("n", "<Leader>w", ":w<CR>", {})
